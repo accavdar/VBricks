@@ -1,0 +1,56 @@
+<template name="donationSubmit">
+    <div id="main" class="row-fluid">
+        <div class="offset3 span6" style="margin: 15px 0 0 0;">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label for="donator" class="control-label">Donator</label>
+
+                    <div class="controls">
+                        <select id="donator" name="donator">
+                            {{#each donators}}
+                            <option value="{{name}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="year" class="control-label">Year</label>
+
+                    <div class="controls">
+                        <select id="year" name="year">
+                            {{#each years}}
+                            <option value="{{year}}">{{year}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="name">Name</label>
+
+                    <div class="controls">
+                        <input type="text" id="name" placeholder="Name" name="name">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="name">Amount</label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" id="amount" placeholder="Amount" name="amount">
+                            <span class="add-on">TL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" value="Submit" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>

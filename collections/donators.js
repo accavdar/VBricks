@@ -1,0 +1,1 @@
+Donators = new Meteor.Collection('donators');

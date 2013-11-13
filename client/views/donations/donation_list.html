@@ -1,0 +1,36 @@
+<template name="donationList">
+    <div id="main" class="row-fluid">
+        <div class="span12" style="margin: 15px 0 0 0;">
+            <a href="{{donationSubmitPath}}" class="btn btn btn-success">New Brick</a>
+        </div>
+
+        <div class="span12" style="margin: 15px 0 0 0;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Donator</th>
+                        <th>Year</th>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each donations}}
+                        {{> donation}}
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+
+<template name="donation">
+    <tr>
+        <td>{{donator}}</td>
+        <td>{{year}}</td>
+        <td>{{name}}</td>
+        <td>{{amount}}</td>
+        <td><a href="" donation-id="{{_id}}" class="btn btn-mini btn-danger delete">Delete</a></td>
+    </tr>
+</template>

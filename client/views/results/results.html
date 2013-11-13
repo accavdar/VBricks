@@ -1,0 +1,16 @@
+<template name="resultList">
+    <div class="row span6 offset3" id="main" style="margin-top: 20%;">
+        {{#each donations}}
+            {{> donationItem}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="donationItem">
+    <div class="donation">
+        <div class="donation-content">
+            <h3>{{name}}</h3>
+        </div>
+        <span class="badge badge-important right-align">{{amount}}</span>
+    </div>
+</template>
