@@ -10,7 +10,7 @@ Template.donationItem.helpers({
             return this.donator
         } else if (this.donator == "TAC") {
             var year = this.year;
-            return this.donator + "'" + year.charAt(2) + year.charAt(3)
+            return this.donator + "'" + year.charAt(year.length - 2) + year.charAt(year.length - 1)
         } else {
             return ''
         }
