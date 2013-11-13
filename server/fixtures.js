@@ -1,4 +1,4 @@
-var donators = ['TAC', 'UAA', 'ACI', 'TALAS', 'Guest'];
+var donators = ['TAC', 'TALAS', 'Guest'];
 
 if (Donations.find().count() === 0) {
     Donations.insert({

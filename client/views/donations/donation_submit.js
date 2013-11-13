@@ -16,6 +16,8 @@ Template.donationSubmit.events({
         $('#year').empty();
         if (selected === "Guest") {
             $("#year").append('<option value="XX" selected>XX</option>');
+        } else if (selected === "TALAS") {
+            $("#year").append('<option value="TALAS" selected>TALAS</option>');
         } else {
             for (var i = 1958; i <= 2010; i++) {
                 $("#year").append('<option value=' + i + '>' + i + '</option>');
