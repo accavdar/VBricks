@@ -1,6 +1,6 @@
 Template.donationList.helpers({
     donations: function () {
-        return Donations.find();
+        return Donations.find({}, {sort: {name: 1}});
     }
 });
 
