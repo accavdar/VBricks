@@ -12,7 +12,7 @@
                         <th>Year</th>
                         <th>Name</th>
                         <th>Amount</th>
-                        <th>Delete</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +31,6 @@
         <td>{{year}}</td>
         <td>{{name}}</td>
         <td>{{amount}}</td>
-        <td><a href="" donation-id="{{_id}}" class="btn btn-mini btn-danger delete">Delete</a></td>
+        <td><a href="{{donationEditPath this}}" class="btn btn-mini btn-info">Edit</a></td>
     </tr>
 </template>

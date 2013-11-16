@@ -28,7 +28,7 @@ if (Donators.find().count() === 0) {
 if (Years.find().count() === 0) {
     for (var i = 1958; i <= 2010; i++) {
         Years.insert({
-            year: i
+            year: i.toString()
         });
     }
 }

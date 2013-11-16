@@ -1,0 +1,82 @@
+<template name="donationEdit">
+    {{#with donation}}
+    <div id="main" class="row-fluid">
+        <div class="offset3 span6" style="margin: 15px 0 0 0;">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label for="donator" class="control-label">Donator</label>
+
+                    <div class="controls">
+                        <select id="donator" name="donator">
+                            {{#each donators}}
+                                {{#if isEqual name donation.donator}}
+                                    <option value="{{name}}" selected>{{name}}</option>
+                                {{else}}
+                                    <option value="{{name}}">{{name}}</option>
+                                {{/if}}
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="year" class="control-label">Year</label>
+
+                    <div class="controls">
+                        <select id="year" name="year">
+                            {{#if isEqual year "TALAS"}}
+                                <option value="{{year}}" selected>{{year}}</option>
+                            {{else}}
+                                {{#if isEqual year "XX"}}
+                                    <option value="{{year}}" selected>{{year}}</option>
+                                {{else}}
+                                    {{#each years}}
+                                        {{#if isEqual year donation.year}}
+                                            <option value="{{year}}" selected>{{year}}</option>
+                                        {{else}}
+                                            <option value="{{year}}">{{year}}</option>
+                                        {{/if}}
+                                    {{/each}}
+                                {{/if}}
+                            {{/if}}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="name">Name</label>
+
+                    <div class="controls">
+                        <input type="text" id="name" placeholder="Name" name="name" value="{{name}}">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="name">Amount</label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" id="amount" placeholder="Amount" name="amount" value="{{amount}}">
+                            <span class="add-on">TL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" value="Update" class="btn btn-primary submit"/>
+                    </div>
+                </div>
+
+                <hr/>
+                <div class="control-group">
+                    <div class="controls">
+                        <a class="btn btn-danger delete" href="#">Delete Donation</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{/with}}
+</template>
+

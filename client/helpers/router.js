@@ -6,10 +6,17 @@ Meteor.Router.add({
         }
     },
 
-    '/list': {
+    '/donations': {
         to: 'donationList',
         and: function() {
             Session.set('isResult', false);
+        }
+    },
+
+    '/donations/:_id/edit': {
+        to: 'donationEdit',
+        and: function(id) {
+            Session.set('currentDonationId', id);
         }
     },
 
