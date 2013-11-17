@@ -4,7 +4,7 @@ if (Meteor.users.find({}, {}).count() === 0) {
     for (var i = 0; i < 3; i++) {
         Accounts.createUser({
             username: 'admin' + i,
-            password: 'tacadmin' + i
+            password: 'tac' + i
         });
     }
 }

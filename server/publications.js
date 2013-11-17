@@ -91,7 +91,7 @@ Meteor.publish("totalBricks", function () {
         },
         removed: function (doc) {
             total -= doc.amount;
-            self.changed("totalBricks", doc.year, {total: total});
+            self.changed("totalBricks", uuid, {total: total});
         },
         changed: function (newDoc, oldDoc) {
             total += newDoc.amount - oldDoc.amount;
