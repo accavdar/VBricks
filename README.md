@@ -32,7 +32,7 @@ Run application:
 
 Admin Interface:
 
-    http://localhost:3000/list
+    http://localhost:3000/donations
 
 Guest Interface:
 

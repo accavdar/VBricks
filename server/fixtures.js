@@ -1,5 +1,14 @@
 var donators = ['TAC', 'TALAS', 'Guest'];
 
+if (Meteor.users.find({}, {}).count() === 0) {
+    for (var i = 0; i < 3; i++) {
+        Accounts.createUser({
+            username: 'admin' + i,
+            password: 'tacadmin' + i
+        });
+    }
+}
+
 if (Donations.find().count() === 0) {
     Donations.insert({
         donator: 'Guest',
