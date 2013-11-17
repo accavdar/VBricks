@@ -1,10 +1,14 @@
 Template.resultList.helpers({
-    donations: function () {
+    byAmount: function () {
         return Donations.find({}, {sort: {amount: -1}, limit: 5});
+    },
+
+    byYear: function () {
+        return DonationsByYear.find({ total: { $gt: 0 }}, {sort: {total: -1}, limit: 5});
     }
 });
 
-Template.donationItem.helpers({
+Template.donationByAmount.helpers({
     gradYear: function () {
         if (this.donator === "TALAS") {
             return this.donator
