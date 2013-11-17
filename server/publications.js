@@ -66,3 +66,44 @@ Meteor.publish("donationsByYear", function () {
         handle.stop();
     });
 });
+
+Meteor.publish("totalBricks", function () {
+    var self = this;
+    var uuid = Meteor.uuid();
+    var total = 7525 * 400;
+
+    var initializeTotal = function () {
+        var donations = Donations.find({}).fetch();
+        for (var i = 0; i < donations.length; i++) {
+            total += donations[i].amount;
+        }
+
+        self.added("totalBricks", uuid, {total: total});
+    }
+
+    var initializing = true;
+    var handle = Donations.find().observe({
+        added: function (doc) {
+            if (!initializing) {
+                total += doc.amount;
+                self.changed("totalBricks", uuid, {total: total});
+            }
+        },
+        removed: function (doc) {
+            total -= doc.amount;
+            self.changed("totalBricks", doc.year, {total: total});
+        },
+        changed: function (newDoc, oldDoc) {
+            total += newDoc.amount - oldDoc.amount;
+            self.changed("totalBricks", uuid, {total: total});
+        }
+    });
+
+    initializing = false;
+    initializeTotal();
+    self.ready();
+
+    self.onStop(function () {
+        handle.stop();
+    });
+});

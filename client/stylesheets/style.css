@@ -95,3 +95,21 @@ body {
     line-height: 28px;
     font-size: 24px;
 }
+
+.jumbotron {
+    margin: 80px 0 40px 0;
+    text-align: center;
+}
+
+.jumbotron h1 {
+    font-size: 100px;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.jumbotron .badge {
+    font-size: 80px;
+    line-height: 1;
+    padding: 20px 20px;
+}
+

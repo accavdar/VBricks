@@ -1,5 +1,9 @@
 <template name="resultList">
     <div class="row" id="main">
+        {{#each totalBricks}}
+        {{> totalBrick}}
+        {{/each}}
+
         <div class="span6">
             {{#each byAmount}}
             {{> donationByAmount}}
@@ -19,16 +23,23 @@
         <div class="donation-content">
             <h3>{{name}}<span>{{gradYear}}</span></h3>
         </div>
-        <span class="badge badge-important right-align">{{amount}}</span>
+        <span class="badge badge-important right-align">{{money2Brick}}</span>
     </div>
 </template>
 
 <template name="donationByYear">
     <div class="donation">
         <div class="donation-content">
-            <h3>{{_id}}</h3>
+            <h3>{{gradYear}}</h3>
         </div>
-        <span class="badge badge-important right-align">{{total}}</span>
+        <span class="badge badge-important right-align">{{money2Brick}}</span>
+    </div>
+</template>
+
+<template name="totalBrick">
+    <div class="jumbotron">
+        <h1>Total Bricks</h1>
+        <span class="badge badge-important">{{money2Brick}}</span>
     </div>
 </template>
 
