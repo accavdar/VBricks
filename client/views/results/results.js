@@ -4,7 +4,7 @@ var money2Brick = function(amount) {
 
 Template.resultList.helpers({
     byAmount: function () {
-        return Donations.find({}, {sort: {amount: -1}, limit: 5});
+        return Donations.find({}, {sort: {amount: -1, year: 1}, limit: 5});
     },
 
     byYear: function () {
