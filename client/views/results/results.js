@@ -36,7 +36,7 @@ Template.donationByAmount.helpers({
 Template.donationByYear.helpers({
     gradYear: function () {
         if (this._id === "XX") {
-            return "Guest"
+            return "Konuklar"
         } else if (this._id === "TALAS") {
             return this._id
         } else {
