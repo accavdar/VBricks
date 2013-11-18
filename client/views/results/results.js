@@ -4,11 +4,11 @@ var money2Brick = function(amount) {
 
 Template.resultList.helpers({
     byAmount: function () {
-        return Donations.find({}, {sort: {amount: -1, year: 1}, limit: 5});
+        return Donations.find({}, {sort: {amount: -1, year: 1}, limit: 10});
     },
 
     byYear: function () {
-        return DonationsByYear.find({ total: { $gt: 0 }}, {sort: {total: -1}, limit: 5});
+        return DonationsByYear.find({ total: { $gt: 0 }}, {sort: {total: -1}, limit: 10});
     },
 
     totalBricks: function () {
