@@ -2,6 +2,8 @@ var money2Brick = function(amount) {
     return amount / 400;
 }
 
+var paginationCount = 5;
+
 Template.resultList.helpers({
     byAmount: function () {
         return Donations.find({}, {sort: {amount: -1, year: 1}});
@@ -57,10 +59,16 @@ Template.totalBrick.helpers({
 });
 
 Template.donationByAmount.rendered = function() {
-    var index = 1;
+    var totalItems = 1;
     $('#donationByAmount .index').each(function() {
-        $(this).html(index++ + '.');
+        $(this).html(totalItems++ + '.');
     });
+
+    if (totalItems > paginationCount) {
+        $('#navigationAmount').show();
+    } else {
+        $('#navigationAmount').hide();
+    }
 
     var partId;
     var $items = $('#donationByAmount .donation');
@@ -68,7 +76,7 @@ Template.donationByAmount.rendered = function() {
     $('#donationByAmount1').append("<div id='amountCarousel' class='carousel slide'><div class='carousel-inner'></div></div>");
 
     $items.each(function(index) {
-        if (index % 4 == 0) {
+        if (index % paginationCount == 0) {
             partId = index;
             if (partId == 0) {
                 $('#amountCarousel .carousel-inner').append("<div class='active item " + index + "'></div>");
@@ -88,10 +96,40 @@ Template.donationByAmount.rendered = function() {
 }
 
 Template.donationByYear.rendered = function() {
-    var index = 1;
+    var totalItems = 1;
     $('#donationByYear .index').each(function() {
-        $(this).html(index++ + '.');
+        $(this).html(totalItems++ + '.');
     });
+
+    if (totalItems > paginationCount) {
+        $('#navigationYear').show();
+    } else {
+        $('#navigationYear').hide();
+    }
+
+    var partId;
+    var $items = $('#donationByYear .donation');
+    $('#donationByYear1').empty();
+    $('#donationByYear1').append("<div id='yearCarousel' class='carousel slide'><div class='carousel-inner'></div></div>");
+
+    $items.each(function(index) {
+        if (index % paginationCount == 0) {
+            partId = index;
+            if (partId == 0) {
+                $('#yearCarousel .carousel-inner').append("<div class='active item " + index + "'></div>");
+            } else {
+                $('#yearCarousel .carousel-inner').append("<div class='item " + index + "'></div>");
+            }
+        }
+        $('#yearCarousel .carousel-inner .item.' + partId).append("<div class='donation'>" + $(this).html() + "</div>");
+    });
+
+    $('#yearCarousel').carousel({
+        interval: false
+    });
+
+    $('#donationByYear1').show();
+    $('#donationByYear').hide();
 }
 
 
