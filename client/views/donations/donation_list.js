@@ -16,4 +16,12 @@ Template.donationList.events({
     }
 });
 
+Template.donationList.rendered = function() {
+    var index = 1;
+    $('.dIndex').each(function() {
+        $(this).html(index++);
+    });
+
+}
+
 

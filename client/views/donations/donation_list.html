@@ -8,6 +8,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Donator</th>
                         <th>Year</th>
                         <th>Name</th>
@@ -27,6 +28,7 @@
 
 <template name="donation">
     <tr>
+        <td class="dIndex">{{index}}</td>
         <td>{{donator}}</td>
         <td>{{year}}</td>
         <td>{{name}}</td>
