@@ -2,7 +2,7 @@ var money2Brick = function(amount) {
     return amount / 400;
 }
 
-var paginationCount = 5;
+var paginationCount = 10;
 
 Template.resultList.helpers({
     byAmount: function () {
