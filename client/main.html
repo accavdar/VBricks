@@ -2,10 +2,17 @@
     <title>Virtual Bricks</title>
 </head>
 <body>
-<div class="container">
-    {{#unless isResult}}
-        {{> header}}
-    {{/unless}}
-    {{renderPage}}
+<div id="wrap">
+    <div class="container">
+        {{#unless isResult}}
+            {{> header}}
+        {{/unless}}
+        {{renderPage}}
+    </div>
 </div>
+
+{{#if isResult}}
+    {{> navButtons}}
+{{/if}}
+
 </body>
