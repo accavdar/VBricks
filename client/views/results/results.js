@@ -4,11 +4,11 @@ var money2Brick = function(amount) {
 
 Template.resultList.helpers({
     byAmount: function () {
-        return Donations.find({}, {sort: {amount: -1, year: 1}, limit: 10});
+        return Donations.find({}, {sort: {amount: -1, year: 1}});
     },
 
     byYear: function () {
-        return DonationsByYear.find({ total: { $gt: 0 }}, {sort: {total: -1}, limit: 10});
+        return DonationsByYear.find({ total: { $gt: 0 }}, {sort: {total: -1}});
     },
 
     totalBricks: function () {
@@ -55,6 +55,44 @@ Template.totalBrick.helpers({
         return money2Brick(this.total);
     }
 });
+
+Template.donationByAmount.rendered = function() {
+    var index = 1;
+    $('#donationByAmount .index').each(function() {
+        $(this).html(index++ + '.');
+    });
+
+    var partId;
+    var $items = $('#donationByAmount .donation');
+    $('#donationByAmount1').empty();
+    $('#donationByAmount1').append("<div id='amountCarousel' class='carousel slide'><div class='carousel-inner'></div></div>");
+
+    $items.each(function(index) {
+        if (index % 4 == 0) {
+            partId = index;
+            if (partId == 0) {
+                $('#amountCarousel .carousel-inner').append("<div class='active item " + index + "'></div>");
+            } else {
+                $('#amountCarousel .carousel-inner').append("<div class='item " + index + "'></div>");
+            }
+        }
+        $('#amountCarousel .carousel-inner .item.' + partId).append("<div class='donation'>" + $(this).html() + "</div>");
+    });
+
+    $('#amountCarousel').carousel({
+        interval: false
+    });
+
+    $('#donationByAmount1').show();
+    $('#donationByAmount').hide();
+}
+
+Template.donationByYear.rendered = function() {
+    var index = 1;
+    $('#donationByYear .index').each(function() {
+        $(this).html(index++ + '.');
+    });
+}
 
 
 

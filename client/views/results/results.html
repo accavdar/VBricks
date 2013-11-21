@@ -1,27 +1,43 @@
 <template name="resultList">
-    <div class="row" id="main">
+    <div class="row">
         {{#each totalBricks}}
         {{> totalBrick}}
         {{/each}}
 
-        <div class="offset1 span5">
+        <div class="offset1 span5" id="donationByAmount">
             {{#each byAmount}}
-            {{> donationByAmount}}
+                {{> donationByAmount}}
             {{/each}}
         </div>
 
-        <div class="span5">
+        <div class="offset1 span5" id="donationByAmount1" style="display: none;">
+        </div>
+
+        <div class="span5" id="donationByYear">
             {{#each byYear}}
             {{> donationByYear}}
             {{/each}}
         </div>
+
+        <div class="offset1 span5" id="donationByYear1" style="display: none;">
+        </div>
     </div>
+
+    <div class="row">
+        <div class="offset1 span5" id="navigationAmount">
+            <a class="btn btn-small btn-info prev" href='#amountCarousel' data-slide="prev"><i class="icon-chevron-left icon-white"></i></a>
+            <a class="btn btn-small btn-info next" href='#amountCarousel' data-slide="prev"><i class="icon-chevron-right icon-white"></i></a>
+        </div>
+        <div class="span5" id="navigationYear">
+        </div>
+    </div>
+
 </template>
 
 <template name="donationByAmount">
     <div class="donation">
         <div class="donation-content">
-            <h3>{{name}}<span>{{gradYear}}</span></h3>
+            <h3><span class="index"></span> {{name}}<span class="year">{{gradYear}}</span></h3>
         </div>
         <span class="badge badge-important right-align">{{money2Brick}}</span>
     </div>
@@ -30,7 +46,7 @@
 <template name="donationByYear">
     <div class="donation">
         <div class="donation-content">
-            <h3>{{gradYear}}</h3>
+            <h3><span class="index"></span> {{gradYear}}</h3>
         </div>
         <span class="badge badge-important right-align">{{money2Brick}}</span>
     </div>

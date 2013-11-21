@@ -82,7 +82,7 @@ body {
     color: #0088CC;
 }
 
-.donation .donation-content h3 span {
+.donation .donation-content h3 span.year {
     font-weight: bold;
     font-size: 20px;
     display: inline-block;
