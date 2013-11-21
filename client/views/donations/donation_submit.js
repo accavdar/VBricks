@@ -19,7 +19,7 @@ Template.donationSubmit.events({
         } else if (selected === "TALAS") {
             $("#year").append('<option value="TALAS" selected>TALAS</option>');
         } else {
-            for (var i = 1958; i <= 2010; i++) {
+            for (var i = 1945; i <= 2011; i++) {
                 $("#year").append('<option value=' + i.toString() + '>' + i + '</option>');
             }
         }
