@@ -3,6 +3,7 @@ var money2Brick = function(amount) {
 }
 
 var paginationCount = 10;
+var slideInterval = 10 * 1000;
 
 Template.resultList.helpers({
     byAmount: function () {
@@ -88,7 +89,7 @@ Template.donationByAmount.rendered = function() {
     });
 
     $('#amountCarousel').carousel({
-        interval: false
+        interval: slideInterval
     });
 
     $('#donationByAmount1').show();
@@ -125,7 +126,7 @@ Template.donationByYear.rendered = function() {
     });
 
     $('#yearCarousel').carousel({
-        interval: false
+        interval: slideInterval
     });
 
     $('#donationByYear1').show();
