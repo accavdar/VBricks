@@ -126,7 +126,7 @@ Template.donationByYear.rendered = function() {
     });
 
     $('#yearCarousel').carousel({
-        interval: slideInterval
+        interval: false
     });
 
     $('#donationByYear1').show();
