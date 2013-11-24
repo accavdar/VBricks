@@ -1,7 +1,7 @@
 vbricks
 =======
 
-vbricks is a real time fund raising application developed using Meteor for Tarsus American College Alumni Association.
+vbricks is a real time fund raising application developed using [Meteor](http://www.meteor.com/) for Tarsus American College Alumni Association.
 
 ## Installation
 
